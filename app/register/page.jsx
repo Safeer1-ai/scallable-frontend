@@ -29,7 +29,7 @@ export default function RegisterPage() {
         {/* Email Input */}
         <div>
           <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-1">
-            Your Retro Email
+            Your Email
           </label>
           <input 
             id="email" 
