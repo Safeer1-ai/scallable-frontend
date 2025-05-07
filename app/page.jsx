@@ -36,7 +36,7 @@ export default function HomePage() {
           </h1>
           <p className="text-xl text-gray-700">
             Hello, <span className="font-bold text-pink-600">{user.email}</span> 👋 <br />
-            Jump into your role and start exploring our retro photo-sharing world!
+            Jump into your role and start exploring our photo-sharing world!
           </p>
           <button
             onClick={handleLogout}
