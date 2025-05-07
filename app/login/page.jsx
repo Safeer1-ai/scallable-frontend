@@ -26,14 +26,14 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-300 via-yellow-200 to-teal-200 font-mono">
       <div className="bg-white/80 backdrop-blur-sm border-2 border-black shadow-[5px_5px_0_rgba(0,0,0,0.9)] rounded-xl p-8 w-full max-w-md">
         <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-6 tracking-wider">
-          🚀 Retro Login
+          🚀 Login
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">
             <Mail className="absolute left-3 top-3 text-gray-600" />
             <input
               type="email"
-              placeholder="Your Retro Email"
+              placeholder="Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full pl-10 py-2 bg-yellow-50 border-2 border-black rounded-md focus:outline-none focus:ring-4 focus:ring-pink-300 text-gray-800 placeholder-gray-500"

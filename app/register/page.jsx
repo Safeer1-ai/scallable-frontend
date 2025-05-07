@@ -45,7 +45,7 @@ export default function RegisterPage() {
         {/* Password Input */}
         <div>
           <label htmlFor="password" className="block text-sm font-bold text-gray-700 mb-1">
-            Secret Code
+            Password
           </label>
           <input 
             id="password" 

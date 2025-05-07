@@ -57,7 +57,7 @@ export default function CreatorPage() {
     <div className="min-h-screen bg-[#f8e8d0] text-[#2c1d18] font-mono flex flex-col items-center p-6">
       <header className="w-full flex justify-between items-center mb-10">
         <Link href="/" className="text-5xl font-extrabold text-[#5b3e31] hover:text-[#8c4e3a] drop-shadow-md retro-shadow">
-          PhotoShare
+          Safeer Media Application
         </Link>
         {user && (
           <div className="flex space-x-6">
@@ -80,7 +80,7 @@ export default function CreatorPage() {
       </header>
 
       <div className="w-full max-w-2xl bg-[#fff5e1] p-8 rounded-lg shadow-xl border-4 border-dashed border-[#2c1d18]">
-        <h2 className="text-3xl font-extrabold text-center mb-6 text-[#5b3e31]">📸 Upload a Retro Photo</h2>
+        <h2 className="text-3xl font-extrabold text-center mb-6 text-[#5b3e31]">📸 Upload a Photo</h2>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="flex flex-col items-start">

@@ -40,7 +40,7 @@ export default function ConsumerPage() {
       {/* Header */}
       <header className="flex justify-between items-center mb-10">
         <Link href="/" className="text-3xl font-black tracking-wide text-[#00eaff] hover:text-[#00ffd0] transition duration-300">
-          🪩 PhotoVerse
+          🪩 Safeer Media Application
         </Link>
         <div className="flex gap-4">
           {user.role === 'admin' && (
@@ -63,10 +63,10 @@ export default function ConsumerPage() {
       {/* Introduction */}
       <section className="text-center mb-10">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-[#faff72] drop-shadow-lg mb-2">
-          Explore the Visual Universe
+          Explore a dynamic visual platform
         </h1>
         <p className="text-md sm:text-lg text-[#cdd6f4]">
-          Discover curated moments shared by creators around the world.
+          Explore handpicked content from creators worldwide, all in one place.
         </p>
       </section>
 
