@@ -54,9 +54,9 @@ export default function PhotoDetailPage() {
     <main className="min-h-screen bg-gradient-to-br from-[#ffe3b3] via-[#ffd6ec] to-[#b3ffec] text-[#2c1d18] font-mono px-6 py-10">
       
       {/* Header */}
-      <header className="flex justify-between items-center mb-10 max-w-7xl mx-auto">
+      <header className="flex justify-between items-center mb-10 max-w-6xl mx-auto">
         <Link href="/" className="text-4xl font-extrabold text-[#292929] drop-shadow-[2px_2px_0_rgba(0,0,0,0.6)]">
-          🖼️ Safeer Media App
+          🖼️ Safeer Media Sharing Application
         </Link>
         <div className="flex gap-4">
           {user.role === 'admin' && (
@@ -76,85 +76,59 @@ export default function PhotoDetailPage() {
         </div>
       </header>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        
-        {/* Left: Fake Navigation */}
-        <aside className="hidden md:block space-y-4 bg-white/80 p-6 border-2 border-black rounded-xl shadow-[3px_3px_0_rgba(0,0,0,0.6)]">
-          <h3 className="text-xl font-bold text-[#ff55a5] mb-4">🔗 Explore</h3>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-pink-600">🏠 Home</a></li>
-            <li><a href="#" className="hover:text-pink-600">🔥 Trending</a></li>
-            <li><a href="#" className="hover:text-pink-600">📷 My Posts</a></li>
-            <li><a href="#" className="hover:text-pink-600">❤️ Likes</a></li>
-            <li><a href="#" className="hover:text-pink-600">⚙️ Settings</a></li>
-          </ul>
-        </aside>
+      {/* Title */}
+      <section className="text-center mb-12 max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#ff55a5] drop-shadow-[2px_2px_0_rgba(0,0,0,0.4)] mb-2">
+          📸 Media Details
+        </h1>
+        <p className="text-lg text-[#292929]">See the full image and community feedback.</p>
+      </section>
 
-        {/* Center: Main Content */}
-        <section className="col-span-1 md:col-span-1">
-          {loading ? (
-            <div className="flex justify-center items-center h-40">
-              <div className="animate-spin rounded-full border-4 border-black border-t-transparent h-12 w-12"></div>
-            </div>
-          ) : (
-            <div className="bg-white/90 border-2 border-black p-6 rounded-xl shadow-[3px_3px_0_rgba(0,0,0,0.4)]">
-              {photo && (
-                <div className="text-center mb-8">
-                  <img
-                    src={photo.url}
-                    alt={photo.caption || 'Uploaded photo'}
-                    className="max-w-full max-h-[500px] mx-auto rounded-lg border-2 border-black shadow-[4px_4px_0_rgba(0,0,0,0.4)]"
-                  />
-                  {photo.caption && (
-                    <p className="mt-4 text-lg text-[#444] italic">{photo.caption}</p>
-                  )}
-                </div>
-              )}
-
-              {/* CommentBox */}
-              <div className="mb-6">
-                <CommentBox photoId={photoId} onCommentAdded={fetchComments} />
-              </div>
-
-              {/* Comments */}
-              <h2 className="text-2xl font-bold text-[#00c9a7] mb-4">💬 Comments</h2>
-              {comments.length === 0 ? (
-                <p className="text-gray-600">No comments yet. Be the first!</p>
-              ) : (
-                <ul className="space-y-4">
-                  {comments.map((comment, i) => (
-                    <li
-                      key={i}
-                      className="bg-[#fff4] p-4 rounded-lg border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,0.4)]"
-                    >
-                      <p className="text-yellow-600 font-semibold">{comment.rating} ★</p>
-                      <p className="text-black mt-1">{comment.comment}</p>
-                    </li>
-                  ))}
-                </ul>
+      {loading ? (
+        <div className="flex justify-center items-center h-40">
+          <div className="animate-spin rounded-full border-4 border-black border-t-transparent h-12 w-12"></div>
+        </div>
+      ) : (
+        <div className="bg-white/90 border-2 border-black p-6 rounded-xl shadow-[2px_2px_0_rgba(0,0,0,0.4)] max-w-4xl mx-auto">
+          {photo && (
+            <div className="text-center mb-8">
+              <img
+                src={photo.url}
+                alt={photo.caption || 'Uploaded photo'}
+                className="max-w-full max-h-[500px] mx-auto rounded-lg shadow-[3px_3px_0_rgba(0,0,0,0.4)] border-2 border-black"
+              />
+              {photo.caption && (
+                <p className="mt-4 text-lg text-[#444] italic">{photo.caption}</p>
               )}
             </div>
           )}
-        </section>
 
-        {/* Right: Follow Section */}
-        <aside className="hidden md:block bg-white/80 p-6 border-2 border-black rounded-xl shadow-[3px_3px_0_rgba(0,0,0,0.6)] space-y-6">
-          <div>
-            <h3 className="text-xl font-bold text-[#ff55a5] mb-2">👤 Photographer</h3>
-            <p className="text-gray-800">safeer_uploader_01</p>
-            <button className="mt-4 bg-[#ff55a5] hover:bg-[#ff85c1] text-white font-bold py-2 px-4 rounded-full border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,0.5)] transition-all">
-              ➕ Follow
-            </button>
+          {/* Comment Box */}
+          <div className="mb-8">
+            <CommentBox photoId={photoId} onCommentAdded={fetchComments} />
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold text-[#00c9a7] mb-2">📊 Stats</h3>
-            <p className="text-gray-700">124 photos</p>
-            <p className="text-gray-700">980 followers</p>
-          </div>
-        </aside>
-      </div>
+          {/* Comments Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#00c9a7] mb-4">💬 Comments</h2>
+            {comments.length === 0 ? (
+              <p className="text-gray-600">No comments yet. Be the first to leave one!</p>
+            ) : (
+              <ul className="space-y-4">
+                {comments.map((comment, index) => (
+                  <li
+                    key={index}
+                    className="bg-[#fff4] p-4 rounded-lg border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,0.4)]"
+                  >
+                    <p className="text-yellow-600 font-semibold">{comment.rating} ★</p>
+                    <p className="text-black mt-1">{comment.comment}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        </div>
+      )}
     </main>
   );
 }
