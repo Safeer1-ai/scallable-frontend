@@ -36,51 +36,52 @@ export default function ConsumerPage() {
   if (!user) return null;
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#1e1f26] via-[#2e2f3a] to-[#1f1f1f] text-white px-6 sm:px-10 md:px-20 py-10">
+    <main className="min-h-screen bg-gradient-to-br from-[#ffe3b3] via-[#ffd6ec] to-[#b3ffec] text-[#2c1d18] font-mono px-6 py-10">
+      
       {/* Header */}
-      <header className="flex justify-between items-center mb-10">
-        <Link href="/" className="text-3xl font-black tracking-wide text-[#00eaff] hover:text-[#00ffd0] transition duration-300">
-          🪩 Safeer Media sharing Application
+      <header className="flex justify-between items-center mb-10 max-w-6xl mx-auto">
+        <Link href="/" className="text-4xl font-extrabold text-[#292929] drop-shadow-[2px_2px_0_rgba(0,0,0,0.6)]">
+          🖼️ Safeer Media Sharing
         </Link>
         <div className="flex gap-4">
           {user.role === 'admin' && (
             <Link
               href="/creator"
-              className="bg-[#ff9de2] text-black px-4 py-2 rounded-md border border-pink-300 font-bold hover:bg-[#ffc6ec] shadow-md transition"
+              className="bg-[#00f0ff] text-black border-2 border-black px-5 py-2 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] hover:bg-[#38fbff] transition"
             >
-              Creator View
+              👨‍🎨 Creator View
             </Link>
           )}
           <Link
             href="/consumer"
-            className="bg-[#98f5e1] text-black px-4 py-2 rounded-md border border-teal-200 font-bold hover:bg-[#c4fff4] shadow-md transition"
+            className="bg-[#baff63] text-black border-2 border-black px-5 py-2 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] hover:bg-[#d3ff7f] transition"
           >
-            Consumer View
+            🖼️ Consumer View
           </Link>
         </div>
       </header>
 
       {/* Introduction */}
-      <section className="text-center mb-10">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#faff72] drop-shadow-lg mb-2">
-          Explore a dynamic visual platform
+      <section className="text-center mb-12 max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#ff55a5] drop-shadow-[2px_2px_0_rgba(0,0,0,0.4)] mb-2">
+          ✨ Explore a Dynamic Visual Platform
         </h1>
-        <p className="text-md sm:text-lg text-[#cdd6f4]">
-          Explore handpicked content from creators worldwide, all in one place.
+        <p className="text-lg text-[#292929]">
+          Discover creative content from artists and photographers all around the world.
         </p>
       </section>
 
-      {/* Loader or Photo Grid */}
+      {/* Photo Gallery or Loading Spinner */}
       {loading ? (
         <div className="flex justify-center items-center h-48">
-          <div className="animate-spin rounded-full border-t-4 border-yellow-400 border-opacity-50 h-12 w-12"></div>
+          <div className="animate-spin rounded-full border-4 border-black border-t-transparent h-12 w-12"></div>
         </div>
       ) : (
-        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {photos.map((photo) => (
             <div
               key={photo.id}
-              className="rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-gray-700 shadow-lg p-4 hover:scale-[1.02] transition duration-300"
+              className="rounded-xl overflow-hidden bg-white/90 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,0.5)] p-4 hover:scale-[1.02] transition duration-300"
             >
               <PhotoCard photo={photo} />
             </div>
