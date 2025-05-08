@@ -41,7 +41,7 @@ export default function ConsumerPage() {
       {/* Header */}
       <header className="flex justify-between items-center mb-8 px-6">
         <Link href="/" className="text-3xl font-extrabold text-[#292929] drop-shadow-[2px_2px_0_rgba(0,0,0,0.6)]">
-          🖼️ Safeer Media
+          🖼️ Safeer Media Application
         </Link>
         <div className="flex gap-4">
           {user.role === 'admin' && (
@@ -62,7 +62,7 @@ export default function ConsumerPage() {
       </header>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr_1fr] gap-6 max-w-7xl mx-auto">
         
         {/* Left Sidebar: Fake Links */}
         <aside className="hidden md:block md:col-span-1 space-y-4 text-[#444]">
@@ -78,7 +78,7 @@ export default function ConsumerPage() {
         </aside>
 
         {/* Center Column: Feed */}
-        <section className="md:col-span-2">
+        <section className="md:col-span-1 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-[#ff55a5] mb-8">
             📷 Your Feed
           </h2>
@@ -88,7 +88,7 @@ export default function ConsumerPage() {
               <div className="animate-spin rounded-full border-4 border-black border-t-transparent h-12 w-12"></div>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
               {photos.map((photo) => (
                 <div
                   key={photo.id}
