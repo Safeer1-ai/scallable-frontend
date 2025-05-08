@@ -51,53 +51,54 @@ export default function PhotoDetailPage() {
   if (!user) return null;
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#1e1f26] via-[#2e2f3a] to-[#1f1f1f] text-white px-6 sm:px-10 md:px-20 py-10">
+    <main className="min-h-screen bg-gradient-to-br from-[#ffe3b3] via-[#ffd6ec] to-[#b3ffec] text-[#2c1d18] font-mono px-6 py-10">
+      
       {/* Header */}
-      <header className="flex justify-between items-center mb-10">
-        <Link href="/" className="text-3xl font-black tracking-wide text-[#00eaff] hover:text-[#00ffd0] transition">
-          🪩 PhotoVerse
+      <header className="flex justify-between items-center mb-10 max-w-6xl mx-auto">
+        <Link href="/" className="text-4xl font-extrabold text-[#292929] drop-shadow-[2px_2px_0_rgba(0,0,0,0.6)]">
+          🖼️ Safeer Media Sharing Application
         </Link>
         <div className="flex gap-4">
           {user.role === 'admin' && (
             <Link
               href="/creator"
-              className="bg-[#ff9de2] text-black px-4 py-2 rounded-md font-semibold border border-pink-300 hover:bg-[#ffc6ec] transition"
+              className="bg-[#00f0ff] text-black border-2 border-black px-5 py-2 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] hover:bg-[#38fbff] transition"
             >
-              Creator View
+              👨‍🎨 Creator View
             </Link>
           )}
           <Link
             href="/consumer"
-            className="bg-[#98f5e1] text-black px-4 py-2 rounded-md font-semibold border border-teal-200 hover:bg-[#c4fff4] transition"
+            className="bg-[#baff63] text-black border-2 border-black px-5 py-2 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] hover:bg-[#d3ff7f] transition"
           >
-            Consumer View
+            🖼️ Consumer View
           </Link>
         </div>
       </header>
 
       {/* Title */}
-      <section className="text-center mb-10">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#faff72] mb-2">
-          Photo Details
+      <section className="text-center mb-12 max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#ff55a5] drop-shadow-[2px_2px_0_rgba(0,0,0,0.4)] mb-2">
+          📸 Media Details
         </h1>
-        <p className="text-[#cdd6f4]">See full image and community feedback</p>
+        <p className="text-lg text-[#292929]">See the full image and community feedback.</p>
       </section>
 
       {loading ? (
         <div className="flex justify-center items-center h-40">
-          <div className="animate-spin rounded-full border-t-4 border-yellow-400 h-12 w-12"></div>
+          <div className="animate-spin rounded-full border-4 border-black border-t-transparent h-12 w-12"></div>
         </div>
       ) : (
-        <div className="bg-white/10 border border-gray-700 p-6 rounded-xl shadow-md backdrop-blur-md">
+        <div className="bg-white/90 border-2 border-black p-6 rounded-xl shadow-[2px_2px_0_rgba(0,0,0,0.4)] max-w-4xl mx-auto">
           {photo && (
             <div className="text-center mb-8">
               <img
                 src={photo.url}
                 alt={photo.caption || 'Uploaded photo'}
-                className="max-w-full max-h-[500px] mx-auto rounded-lg shadow-lg"
+                className="max-w-full max-h-[500px] mx-auto rounded-lg shadow-[3px_3px_0_rgba(0,0,0,0.4)] border-2 border-black"
               />
               {photo.caption && (
-                <p className="mt-4 text-lg text-[#f0f0f0] italic">{photo.caption}</p>
+                <p className="mt-4 text-lg text-[#444] italic">{photo.caption}</p>
               )}
             </div>
           )}
@@ -109,18 +110,18 @@ export default function PhotoDetailPage() {
 
           {/* Comments Section */}
           <section>
-            <h2 className="text-2xl font-bold text-[#00ffd0] mb-4">Comments</h2>
+            <h2 className="text-2xl font-bold text-[#00c9a7] mb-4">💬 Comments</h2>
             {comments.length === 0 ? (
-              <p className="text-gray-300">No comments yet. Be the first to leave one!</p>
+              <p className="text-gray-600">No comments yet. Be the first to leave one!</p>
             ) : (
               <ul className="space-y-4">
                 {comments.map((comment, index) => (
                   <li
                     key={index}
-                    className="bg-white/5 p-4 rounded-lg border border-gray-600 shadow-inner"
+                    className="bg-[#fff4] p-4 rounded-lg border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,0.4)]"
                   >
-                    <p className="text-yellow-300 font-semibold">{comment.rating} Stars</p>
-                    <p className="text-gray-200 mt-1">{comment.comment}</p>
+                    <p className="text-yellow-600 font-semibold">{comment.rating} ★</p>
+                    <p className="text-black mt-1">{comment.comment}</p>
                   </li>
                 ))}
               </ul>
