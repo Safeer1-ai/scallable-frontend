@@ -30,11 +30,11 @@ export default function HomePage() {
         {/* Left side: welcome text */}
         <div className="space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-            👾 Welcome to <span className="text-indigo-600">RetroShare</span>
+            👾 Welcome to <span className="text-indigo-600">Safeer Media sharing Application</span>
           </h1>
           <p className="text-lg text-gray-600">
             Hello, <span className="font-semibold text-pink-600">{user.email}</span> 👋 <br />
-            Ready to explore the retro world of photo sharing?
+            Ready to explore the world of photo sharing?
           </p>
           <button
             onClick={handleLogout}

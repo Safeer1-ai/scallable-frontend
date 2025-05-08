@@ -40,7 +40,7 @@ export default function ConsumerPage() {
       {/* Header */}
       <header className="flex justify-between items-center mb-10">
         <Link href="/" className="text-3xl font-black tracking-wide text-[#00eaff] hover:text-[#00ffd0] transition duration-300">
-          🪩 Safeer Media Application
+          🪩 Safeer Media sharing Application
         </Link>
         <div className="flex gap-4">
           {user.role === 'admin' && (

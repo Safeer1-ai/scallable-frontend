@@ -54,72 +54,76 @@ export default function CreatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8e8d0] text-[#2c1d18] font-mono flex flex-col items-center p-6">
-      <header className="w-full flex justify-between items-center mb-10">
-        <Link href="/" className="text-5xl font-extrabold text-[#5b3e31] hover:text-[#8c4e3a] drop-shadow-md retro-shadow">
-          Safeer Media Application
+    <main className="min-h-screen bg-gradient-to-br from-[#ffe3b3] via-[#ffd6ec] to-[#b3ffec] text-gray-900 font-mono p-6 flex flex-col items-center">
+      
+      {/* Header */}
+      <header className="w-full max-w-6xl mb-10 flex justify-between items-center">
+        <Link href="/" className="text-4xl font-extrabold text-[#292929] drop-shadow-[2px_2px_0_rgba(0,0,0,0.6)]">
+          🎨 Safeer Media Sharing Application
         </Link>
-        {user && (
-          <div className="flex space-x-6">
-            {user.role === 'admin' && (
-              <Link
-                href="/creator"
-                className="bg-[#ffcc00] text-[#2c1d18] px-5 py-2 rounded-md border border-[#2c1d18] text-lg font-bold hover:bg-[#ffdb4d] transition duration-200 shadow-md"
-              >
-                Creator View
-              </Link>
-            )}
-            <Link
-              href="/consumer"
-              className="bg-[#7ec850] text-[#2c1d18] px-5 py-2 rounded-md border border-[#2c1d18] text-lg font-bold hover:bg-[#92db63] transition duration-200 shadow-md"
-            >
-              Consumer View
-            </Link>
-          </div>
-        )}
+        <div className="flex gap-4">
+          <Link
+            href="/creator"
+            className="bg-[#00f0ff] text-black border-2 border-black px-5 py-2 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] hover:bg-[#38fbff] transition"
+          >
+            👨‍🎨 Creator View
+          </Link>
+          <Link
+            href="/consumer"
+            className="bg-[#baff63] text-black border-2 border-black px-5 py-2 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] hover:bg-[#d3ff7f] transition"
+          >
+            🖼️ Viewer Mode
+          </Link>
+        </div>
       </header>
 
-      <div className="w-full max-w-2xl bg-[#fff5e1] p-8 rounded-lg shadow-xl border-4 border-dashed border-[#2c1d18]">
-        <h2 className="text-3xl font-extrabold text-center mb-6 text-[#5b3e31]">📸 Upload a Photo</h2>
+      {/* Upload Form Card */}
+      <section className="w-full max-w-3xl bg-white/90 p-10 rounded-3xl shadow-2xl border-4 border-black">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-[#292929] drop-shadow-[2px_2px_0_rgba(0,0,0,0.5)]">
+          📸 Upload Your Masterpiece
+        </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="flex flex-col items-start">
-            <label htmlFor="image" className="text-md font-semibold mb-2 text-[#5b3e31]">Choose an Image</label>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="image" className="block mb-2 font-bold text-[#292929]">
+              Select Image File
+            </label>
             <input
-              id="image"
               type="file"
+              id="image"
               accept="image/*"
               onChange={handleFileChange}
-              className="block w-full text-sm text-[#5b3e31] file:py-2 file:px-4 file:border file:border-[#5b3e31] file:bg-[#ffefc2] file:text-[#2c1d18] file:rounded-md hover:file:bg-[#ffe18c]"
               required
+              className="w-full bg-[#fff] p-2 rounded-md border-2 border-black file:bg-[#ffe680] file:border file:border-black file:rounded-md file:px-4 file:py-2 hover:file:bg-[#fff0a6]"
             />
           </div>
 
           {['title', 'caption', 'location', 'people'].map((field) => (
             <div key={field}>
-              <label htmlFor={field} className="block text-md font-semibold mb-1 text-[#5b3e31]">
+              <label htmlFor={field} className="block mb-1 font-bold text-[#292929]">
                 {field.charAt(0).toUpperCase() + field.slice(1)}
               </label>
               <input
                 id={field}
                 name={field}
+                type="text"
                 value={formData[field]}
                 onChange={handleChange}
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                className="w-full p-3 border border-[#5b3e31] rounded-md bg-[#fff5e1] text-[#2c1d18] focus:outline-none focus:ring-2 focus:ring-[#ffcc00]"
                 required
+                placeholder={`Enter ${field}`}
+                className="w-full p-3 border-2 border-black rounded-md bg-[#fff5e1] text-[#292929] focus:outline-none focus:ring-2 focus:ring-[#00f0ff]"
               />
             </div>
           ))}
 
           <button
             type="submit"
-            className="w-full py-3 bg-[#ffcc00] text-[#2c1d18] rounded-md border border-[#2c1d18] font-bold text-lg hover:bg-[#ffe580] transition duration-200"
+            className="w-full bg-[#ffcc00] hover:bg-[#ffe580] text-black border-2 border-black px-6 py-3 rounded-xl font-bold shadow-[2px_2px_0_rgba(0,0,0,0.6)] transition duration-300"
           >
             🚀 Upload Photo
           </button>
         </form>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
