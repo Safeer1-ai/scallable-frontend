@@ -77,8 +77,8 @@ export default function ConsumerPage() {
           </nav>
         </aside>
 
-        {/* Center Column: Feed */}
-        <section className="md:col-span-1 max-w-4xl mx-auto">
+        {/* Center Column: Feed (One Column Layout) */}
+        <section className="md:col-span-1 max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-[#ff55a5] mb-8">
             📷 Your Feed
           </h2>
@@ -88,7 +88,7 @@ export default function ConsumerPage() {
               <div className="animate-spin rounded-full border-4 border-black border-t-transparent h-12 w-12"></div>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            <div className="flex flex-col gap-6">
               {photos.map((photo) => (
                 <div
                   key={photo.id}
